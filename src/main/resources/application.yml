@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: springboot-camel-test
+
+server:
+  port: 8080
+
+camel:
+  springboot:
+    name: springboot-camel-test
+  rest:
+    component: platform-http
+  component:
+    kafka:
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+app:
+  greeting: "Hola desde Apache Camel en Spring Boot"
+  file:
+    inbox: data/inbox
+    outbox: data/outbox
+    error: data/error
+  kafka:
+    topic: test-topic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    org.apache.camel: INFO

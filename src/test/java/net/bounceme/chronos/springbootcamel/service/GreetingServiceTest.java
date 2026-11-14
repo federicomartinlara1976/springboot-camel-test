@@ -1,8 +1,9 @@
-package com.example.springbootcamel.service;
+package net.bounceme.chronos.springbootcamel.service;
 
-import com.example.springbootcamel.dto.EchoResponse;
-import com.example.springbootcamel.dto.Greeting;
 import org.junit.jupiter.api.Test;
+
+import net.bounceme.chronos.springbootcamel.dto.EchoResponse;
+import net.bounceme.chronos.springbootcamel.dto.Greeting;
 
 import java.util.Map;
 

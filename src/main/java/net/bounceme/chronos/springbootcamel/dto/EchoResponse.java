@@ -1,4 +1,4 @@
-package com.example.springbootcamel.dto;
+package net.bounceme.chronos.springbootcamel.dto;
 
 public record EchoResponse(String message, int length) {
 }

@@ -11,14 +11,15 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.example</groupId>
+    <groupId>net.bounceme.chronos</groupId>
     <artifactId>springboot-camel-test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>springboot-camel-test</name>
     <description>Proyecto Spring Boot con Apache Camel contenedorizado con Docker</description>
 
     <properties>
         <java.version>21</java.version>
+        <spring-cloud.version>2023.0.5</spring-cloud.version>
         <camel.version>4.8.0</camel.version>
     </properties>
 
@@ -31,6 +32,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
+            <dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -39,32 +48,73 @@
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
         </dependency>
+        
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+        
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-platform-http-starter</artifactId>
         </dependency>
+        
+        <dependency>
+		    <groupId>org.apache.camel.springboot</groupId>
+		    <artifactId>camel-openapi-java-starter</artifactId>
+		</dependency>
+        
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-jackson-starter</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-kafka-starter</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-quartz-starter</artifactId>
         </dependency>
+        
+        <dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+        
+        <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		
+		<!-- Graylog appender -->
+		<dependency>
+			<groupId>de.siegmar</groupId>
+			<artifactId>logback-gelf</artifactId>
+			<version>4.0.2</version>
+			<scope>compile</scope>
+		</dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring-junit5</artifactId>

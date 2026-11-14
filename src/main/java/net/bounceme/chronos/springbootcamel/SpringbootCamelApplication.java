@@ -1,4 +1,4 @@
-package com.example.springbootcamel;
+package net.bounceme.chronos.springbootcamel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

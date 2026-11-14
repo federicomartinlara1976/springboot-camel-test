@@ -1,4 +1,4 @@
-package com.example.springbootcamel.route;
+package net.bounceme.chronos.springbootcamel.route;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;

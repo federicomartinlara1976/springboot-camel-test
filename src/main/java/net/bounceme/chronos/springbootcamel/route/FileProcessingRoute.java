@@ -1,8 +1,9 @@
-package com.example.springbootcamel.route;
+package net.bounceme.chronos.springbootcamel.route;
 
-import com.example.springbootcamel.service.FileProcessingService;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
+
+import net.bounceme.chronos.springbootcamel.service.FileProcessingService;
 
 @Component
 public class FileProcessingRoute extends RouteBuilder {

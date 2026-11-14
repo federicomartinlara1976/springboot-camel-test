@@ -1,6 +1,6 @@
 services:
   kafka:
-    image: bitnami/kafka:3.8
+    image: docker.io/bitnami/kafka:3.8
     container_name: camel-kafka
     environment:
       KAFKA_CFG_NODE_ID: 0

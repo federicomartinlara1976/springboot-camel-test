@@ -1,4 +1,4 @@
-package com.example.springbootcamel.dto;
+package net.bounceme.chronos.springbootcamel.dto;
 
 import java.time.Instant;
 

@@ -1,4 +1,4 @@
-package com.example.springbootcamel.service;
+package net.bounceme.chronos.springbootcamel.service;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Header;

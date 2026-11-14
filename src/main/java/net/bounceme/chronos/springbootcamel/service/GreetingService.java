@@ -1,11 +1,12 @@
-package com.example.springbootcamel.service;
+package net.bounceme.chronos.springbootcamel.service;
 
-import com.example.springbootcamel.dto.EchoResponse;
-import com.example.springbootcamel.dto.Greeting;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
+import net.bounceme.chronos.springbootcamel.dto.EchoResponse;
+import net.bounceme.chronos.springbootcamel.dto.Greeting;
 
 @Service
 public class GreetingService {

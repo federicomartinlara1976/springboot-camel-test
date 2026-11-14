@@ -1,8 +1,9 @@
-package com.example.springbootcamel.route;
+package net.bounceme.chronos.springbootcamel.route;
 
-import com.example.springbootcamel.service.GreetingService;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
+
+import net.bounceme.chronos.springbootcamel.service.GreetingService;
 
 @Component
 public class GreetingRoute extends RouteBuilder {

@@ -62,6 +62,11 @@
         </dependency>
         
         <dependency>
+		    <groupId>org.apache.camel.springboot</groupId>
+		    <artifactId>camel-openapi-java-starter</artifactId>
+		</dependency>
+        
+        <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-jackson-starter</artifactId>
         </dependency>
@@ -87,25 +92,9 @@
 		</dependency>
         
         <dependency>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-starter-logging</artifactId>
-		</dependency>
-		
-		<dependency>
-    		<groupId>org.springframework.cloud</groupId>
-    		<artifactId>spring-cloud-starter-bootstrap</artifactId>
-		</dependency>
-        
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        
-        <dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.4.0</version>
-		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

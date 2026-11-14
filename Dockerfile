@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
-ENV JAVA_OPTS=""
+ENV JAVA_OPTS="-DCONFIG_SERVER_URL=http://192.168.1.135:8888 -DEUREKA_URI=http://192.168.1.135:8761"
 ENV JAVA_ARGS=""
 
 USER app

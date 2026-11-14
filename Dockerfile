@@ -1,4 +1,4 @@
-FROM maven:3.9-eclipse-temurin-21 AS build
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
 COPY pom.xml .
@@ -13,7 +13,10 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
-USER app
-EXPOSE 8080
+ENV JAVA_OPTS=""
+ENV JAVA_ARGS=""
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+USER app
+EXPOSE 8085
+
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS $JAVA_ARGS -jar app.jar"]

@@ -12,7 +12,7 @@ camel:
     component: platform-http
   component:
     kafka:
-      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+      brokers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
 
 app:
   greeting: "Hola desde Apache Camel en Spring Boot"

@@ -22,7 +22,7 @@
         <useCompression>true</useCompression>
         <messageIdSupplier class="de.siegmar.logbackgelf.MessageIdSupplier"/>
         <encoder class="de.siegmar.logbackgelf.GelfEncoder">
-            <originHost>localhost</originHost>
+            <originHost>${GRAYLOG_SERVER}</originHost>
             <includeRawMessage>false</includeRawMessage>
             <includeMarker>true</includeMarker>
             <includeMdcData>true</includeMdcData>
@@ -36,7 +36,7 @@
                 <pattern>%m%n</pattern>
             </fullPatternLayout>
             <numbersAsString>false</numbersAsString>
-            <staticField>application:springboot-ia-test</staticField>
+            <staticField>application:springboot-camel-test</staticField>
             <staticField>environment:${PROFILE_ACTIVE}</staticField>
         </encoder>
     </appender>

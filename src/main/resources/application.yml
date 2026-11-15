@@ -19,11 +19,6 @@ camel:
   rest:
     component: platform-http
     api-context-path: /api-docs
-    api-property:
-      - key: api.title
-        value: SpringBoot Camel Test API
-      - key: api.version
-        value: 1.0.0
 
   component:
     kafka:

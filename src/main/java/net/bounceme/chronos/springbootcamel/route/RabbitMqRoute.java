@@ -8,7 +8,7 @@ public class RabbitMqRoute extends RouteBuilder {
 
     @Override
     public void configure() {
-    	from("spring-rabbitmq:camel.exchange?queues=test&routingKey=camel.key&autoDeclare=true")
+    	from("spring-rabbitmq:camel.exchange?queues=camel.queue&routingKey=camel.key&autoDeclare=true")
         	.routeId("rabbitmq-consumer-route")
         	.log("Mensaje RabbitMQ recibido: ${body}");
     }

@@ -49,6 +49,7 @@ public class GreetingRoute extends RouteBuilder {
                 .routeId("publish-message-route")
                 .log("Publicando mensaje en Kafka: ${body}")
                 .to("kafka:{{app.kafka.topic}}")
+                .to("spring-rabbitmq:camel.exchange?routingKey=camel.key")
                 .setBody(constant("{\"status\":\"publicado\"}"));
     }
 }

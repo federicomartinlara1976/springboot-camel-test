@@ -8,7 +8,8 @@ import net.bounceme.chronos.springbootcamel.service.GreetingService;
 @Component
 public class GreetingRoute extends RouteBuilder {
 
-    private final GreetingService greetingService;
+    private static final String APPLICATION_JSON = "application/json";
+	private final GreetingService greetingService;
 
     public GreetingRoute(GreetingService greetingService) {
         this.greetingService = greetingService;
@@ -19,18 +20,18 @@ public class GreetingRoute extends RouteBuilder {
         rest("/api")
                 .get("/hello")
                 .id("rest-hello")
-                .produces("application/json")
+                .produces(APPLICATION_JSON)
                 .to("direct:greet")
 
                 .post("/echo")
                 .id("rest-echo")
-                .consumes("application/json")
-                .produces("application/json")
+                .consumes(APPLICATION_JSON)
+                .produces(APPLICATION_JSON)
                 .to("direct:echo")
 
                 .post("/messages")
                 .id("rest-publish")
-                .consumes("application/json")
+                .consumes(APPLICATION_JSON)
                 .to("direct:publish-message");
 
         from("direct:greet")
@@ -48,6 +49,7 @@ public class GreetingRoute extends RouteBuilder {
                 .routeId("publish-message-route")
                 .log("Publicando mensaje en Kafka: ${body}")
                 .to("kafka:{{app.kafka.topic}}")
+                .to("spring-rabbitmq:camel.exchange?routingKey=camel.key")
                 .setBody(constant("{\"status\":\"publicado\"}"));
     }
 }

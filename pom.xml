@@ -13,7 +13,7 @@
 
     <groupId>net.bounceme.chronos</groupId>
     <artifactId>springboot-camel-test</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>springboot-camel-test</name>
     <description>Proyecto Spring Boot con Apache Camel contenedorizado con Docker</description>
 
@@ -77,6 +77,11 @@
         </dependency>
         
         <dependency>
+		    <groupId>org.apache.camel.springboot</groupId>
+		    <artifactId>camel-spring-rabbitmq-starter</artifactId>
+		</dependency>
+        
+        <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-quartz-starter</artifactId>
         </dependency>
@@ -89,6 +94,11 @@
         <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-bootstrap</artifactId>
 		</dependency>
         
         <dependency>
@@ -107,6 +117,12 @@
 			<artifactId>logback-gelf</artifactId>
 			<version>4.0.2</version>
 			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
         <dependency>
@@ -127,7 +143,80 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
             </plugin>
+            
+            <plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>5.8.0.7211</version>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.13</version>
+				<configuration>
+			        <excludes>
+			            <exclude>**/SuncalcApplication.class</exclude>
+			            <exclude>**/*Application.class</exclude>
+			            <exclude>**/config/**</exclude>
+			            <exclude>**/dto/**</exclude>
+			            <exclude>**/model/**</exclude>
+			        </excludes>
+			    </configuration>
+				<executions>
+					<execution>
+						<goals>
+							<!-- Instrumenta el código para registrar la
+							cobertura antes de los tests -->
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<!-- Genera el reporte de cobertura de código -->
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <configuration>
+			        <argLine>
+			            --add-opens java.base/java.lang=ALL-UNNAMED
+			            --add-opens java.base/java.util=ALL-UNNAMED
+			            --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+			            --add-opens java.base/jdk.internal.misc=ALL-UNNAMED
+			            --add-opens java.base/jdk.internal.reflect=ALL-UNNAMED
+			            -Dnet.bytebuddy.experimental=true
+			        </argLine>
+			    </configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>net.bounceme.chronos.springbootcamel.SpringbootCamelApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 </project>

@@ -212,7 +212,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>net.bounceme.chronos.suncalc.SpringbootCamelApplication</mainClass>
+							<mainClass>net.bounceme.chronos.springbootcamel.SpringbootCamelApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

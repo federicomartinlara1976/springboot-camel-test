@@ -13,7 +13,7 @@
 
     <groupId>net.bounceme.chronos</groupId>
     <artifactId>springboot-camel-test</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>springboot-camel-test</name>
     <description>Proyecto Spring Boot con Apache Camel contenedorizado con Docker</description>
 
